@@ -23,13 +23,13 @@ module.exports.createSurvey = async(req,res)=>{
 
         if(!createdSurvey){
             return res.status(200).json({
-                message:"Survey not created in database due to some reason",
+                message:"Survey not created",
                 data:{}
             });
         }
 
         return res.status(201).json({
-            message:"Survey created successfully",
+            message:"Thanks For Compleitng Survey",
             data:{createdSurvey}
         });
 
