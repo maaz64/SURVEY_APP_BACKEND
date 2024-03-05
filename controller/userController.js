@@ -62,8 +62,8 @@ const signUp =async (req,res)=>{
 const generateAcessTokenAndRefreshToken = async(userId)=>{
 
         const user = await User.findById(userId);
-        const accessToken = jwt.sign({email:user.email, id:user._id}, process.env.ACCESS_TOKEN_SECRET_KEY ,{expiresIn:"30000"});
-        const refreshToken = jwt.sign({email:user.email, id:user._id}, process.env.REFRESH_TOKEN_SECRET_KEY ,{expiresIn:"60000"});
+        const accessToken = jwt.sign({email:user.email, id:user._id}, process.env.ACCESS_TOKEN_SECRET_KEY ,{expiresIn:"1h"});
+        const refreshToken = jwt.sign({email:user.email, id:user._id}, process.env.REFRESH_TOKEN_SECRET_KEY ,{expiresIn:"7d"});
 
         
         const updatedTokenUser = await User.findByIdAndUpdate(user._id,{
